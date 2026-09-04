@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema de Pegatinas con Conversor de Divisas</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- BARRA LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">✦</div>
+
+        <button class="nav-button active" data-section="pegatinas">
+            <span>🏷️</span>
+            <small>Pegatinas</small>
+        </button>
+
+        <button class="nav-button" data-section="conversor">
+            <span>💲</span>
+            <small>Conversor</small>
+        </button>
+
+        <button class="nav-button" data-section="notas">
+            <span>▤</span>
+            <small>Notas</small>
+        </button>
+
+        <button class="nav-button" data-section="historial">
+            <span>⌁</span>
+            <small>Historial</small>
+        </button>
+
+        <button class="nav-button" data-section="ajustes">
+            <span>⚙</span>
+            <small>Ajustes</small>
+        </button>
+
+        <button class="nav-button cerrar" id="cerrarSesion">
+            <span>↪</span>
+            <small>Cerrar sesión</small>
+        </button>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main">
+
+        <!-- ENCABEZADO -->
+        <header class="header">
+
+            <div>
+                <h1>SISTEMA DE PEGATINAS</h1>
+                <p>CON CONVERSOR DE DIVISAS</p>
+            </div>
+
+            <button id="tema" class="tema">
+                ☼ ◐ Tema oscuro
+            </button>
+
+        </header>
+
+
+        <!-- CONTENEDORES PRINCIPALES -->
+        <div class="contenedores">
+
+
+            <!-- SISTEMA DE PEGATINAS -->
+            <section class="panel" id="pegatinas">
+
+                <h2>🏷️ Sistema de Pegatinas</h2>
+
+                <div class="campo">
+
+                    <label>Nombre de la pegatina</label>
+
+                    <input
+                        type="text"
+                        id="nombrePegatina"
+                        placeholder="Ej: Súper Héroe"
+                    >
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>Seleccionar icono</label>
+
+                    <div class="iconos">
+
+                        <button class="icono seleccionado">☆</button>
+                        <button class="icono">🏆</button>
+                        <button class="icono">ϟ</button>
+                        <button class="icono">♡</button>
+
+                        <button class="icono">⚽</button>
+                        <button class="icono">🎮</button>
+                        <button class="icono">☕</button>
+                        <button class="icono">♫</button>
+
+                        <button class="icono">📷</button>
+                        <button class="icono">🍕</button>
+                        <button class="icono">🎁</button>
+                        <button class="icono">🚀</button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label>Valor en monedas 🪙</label>
+
+                    <div class="fila">
+
+                        <input
+                            type="number"
+                            id="valorPegatina"
+                            value="100"
+                        >
+
+                        <select id="monedaPegatina">
+
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="ARS">ARS</option>
+                            <option value="GBP">GBP</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div class="resultado">
+
+                    <span>RESULTADO ESTIMADO</span>
+
+                    <strong id="resultadoPegatina">
+                        0.00 USD
+                    </strong>
+
+                </div>
+
+
+                <button class="boton-principal" id="guardarPegatina">
+                    ＋ Guardar Pegatina
+                </button>
+
+            </section>
+
+
+
+            <!-- CONVERSOR -->
+            <section class="panel" id="conversor">
+
+                <h2>＄ Conversor de Divisas</h2>
+
+
+                <div class="campo">
+
+                    <label>Desde</label>
+
+                    <select id="monedaDesde">
+
+                        <option value="USD">🇺🇸 USD - Dólar Estadounidense</option>
+                        <option value="EUR">🇪🇺 EUR - Euro</option>
+                        <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                        <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="cantidad">
+
+                    <input
+                        type="number"
+                        id="cantidad"
+                        value="100"
+                    >
+
+                    <span id="simboloDesde">USD</span>
+
+                </div>
+
+
+                <button id="intercambiar" class="intercambiar">
+                    ⇅
+                </button>
+
+
+                <div class="campo">
+
+                    <label>Hasta</label>
+
+                    <select id="monedaHasta">
+
+                        <option value="EUR">🇪🇺 EUR - Euro</option>
+                        <option value="USD">🇺🇸 USD - Dólar Estadounidense</option>
+                        <option value="ARS">🇦🇷 ARS - Peso Argentino</option>
+                        <option value="GBP">🇬🇧 GBP - Libra Esterlina</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="cantidad resultado-cantidad">
+
+                    <input
+                        type="text"
+                        id="resultadoConversion"
+                        value="92,35"
+                        readonly
+                    >
+
+                    <span id="simboloHasta">EUR</span>
+
+                </div>
+
+
+                <div class="informacion">
+
+                    <span id="textoCotizacion">
+                        1 USD = 0,9235 EUR
+                    </span>
+
+                    <span>
+                        Actualizado: ahora
+                    </span>
+
+                </div>
+
+
+                <button id="convertir" class="boton-convertir">
+                    Convertir
+                </button>
+
+
+                <div class="favoritos">
+
+                    <h3>Divisas favoritas ☆</h3>
+
+                    <div class="lista-favoritos">
+
+                        <button data-moneda="USD">🇺🇸 USD</button>
+                        <button data-moneda="EUR">🇪🇺 EUR</button>
+                        <button data-moneda="ARS">🇦🇷 ARS</button>
+                        <button data-moneda="GBP">🇬🇧 GBP</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+
+        <!-- PIZARRÓN -->
+        <section class="panel pizarron" id="notas">
+
+            <h2>▣ Pizarrón de Notas</h2>
+
+
+            <div id="zonaEliminar" class="zona-eliminar">
+
+                🗑️
+                Arrastrá una nota acá para eliminarla
+
+            </div>
+
+
+            <div class="agregar-nota">
+
+                <input
+                    type="text"
+                    id="notaTexto"
+                    placeholder="Escribe una nota rápida..."
+                >
+
+                <button id="agregarNota">
+                    ➤ Agregar
+                </button>
+
+            </div>
+
+
+            <div id="tablero" class="tablero"></div>
+
+        </section>
+
+
+
+        <!-- HISTORIAL -->
+        <section class="panel oculto" id="historial">
+
+            <h2>⌁ Historial</h2>
+
+            <div id="listaHistorial"></div>
+
+        </section>
+
+
+
+        <!-- AJUSTES -->
+        <section class="panel oculto" id="ajustes">
+
+            <h2>⚙ Ajustes</h2>
+
+            <div class="ajuste">
+
+                <span>Tema oscuro</span>
+
+                <input
+                    type="checkbox"
+                    id="temaCheckbox"
+                    checked
+                >
+
+            </div>
+
+
+            <button id="borrarTodo" class="boton-borrar">
+                Borrar todos los datos
+            </button>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<div id="mensaje" class="mensaje"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
